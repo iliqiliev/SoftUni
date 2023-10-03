@@ -5,11 +5,10 @@ number_of_shuffles = int(input())
 for shuffle in range(number_of_shuffles):
     first_half = list_of_strings[:middle]
     second_half = list_of_strings[middle:]
+    list_of_strings = []
     
-    for index in range(len(list_of_strings)):
-        if not index % 2: # if even
-            list_of_strings[index] = first_half[index // 2]
-        else:
-            list_of_strings[index] = second_half[index // 2]
+    for index in range(middle):
+        list_of_strings.append(first_half[index])
+        list_of_strings.append(second_half[index])
 
 print(list_of_strings)
