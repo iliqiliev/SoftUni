@@ -25,8 +25,7 @@ def divide(index: int, partitions: int, strings: list) -> list:
     element = strings[index]
 
     length = len(strings[index])
-    size = length // partitions
-    remainder = length % partitions
+    size, remainder = divmod(length, partitions)
 
     # length - remainder to avoid creating a partition that is smaller than the other
     for part in range(0, length - remainder, size):
