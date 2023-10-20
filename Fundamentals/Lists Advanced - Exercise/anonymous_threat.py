@@ -47,6 +47,7 @@ strings = input().split()
 
 command = input().split()
 while command[0] != "3:1":
+    
     command, index, option = command[0], int(command[1]), int(command[2])
 
     if command == "merge":
