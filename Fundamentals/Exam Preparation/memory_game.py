@@ -3,7 +3,6 @@ moves = 0
 
 command = input()
 while command != "end":
-    # i
     moves += 1
 
     a, b = map(int, command.split())
