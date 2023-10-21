@@ -8,7 +8,6 @@ while command != "Go Shopping!":
         new_item = new_item[0]
 
     if item in shopping_list:
-        
         if command == "Unnecessary":
             shopping_list.remove(item)
 
