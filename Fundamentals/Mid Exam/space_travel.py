@@ -6,14 +6,12 @@ for command in travel_route:
 
     command = command.split()
     option = command[0]
-    # avoid error if the option is just "Titan"
 
     if option == "Travel":
         distance = int(command[1])
 
         if fuel >= distance:
             fuel -= distance
-            # travelled is spelled incorrectly
             print(f"The spaceship travelled {distance} light-years.")
 
         else:
