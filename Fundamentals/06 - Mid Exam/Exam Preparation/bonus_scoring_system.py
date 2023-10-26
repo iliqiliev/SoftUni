@@ -11,5 +11,5 @@ max_student_bonus = (max_student_attendance / number_of_lectures) * \
     (5 + additional_bonus) if number_of_lectures else 0
 
 # makeshift Math.ceil
-print(f"Max Bonus: {-int(-max_student_bonus)}.\n"
+print(f"Max Bonus: {-int(-max_student_bonus // 1)}.\n"
       f"The student has attended {max_student_attendance} lectures.")
