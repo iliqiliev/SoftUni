@@ -13,7 +13,7 @@ for word in message:
     # first letter is now the letter from the ascii table
     word_deciphered[0] = first_letter
     # switch the 2nd and the last character
-    word_deciphered[1], word_deciphered[-1] = word_deciphered[-1],  word_deciphered[1]
+    word_deciphered[1], word_deciphered[-1] = word_deciphered[-1], word_deciphered[1]
 
     message_deciphered.append("".join(word_deciphered))
 
