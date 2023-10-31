@@ -1,3 +1,14 @@
-[![SoftUni Logo](https://user-images.githubusercontent.com/68993494/185683680-bcfefe65-88fb-4192-b0b2-ff9130c39487.png)](https://softuni.bg/)
+<div align="center">
+
+  <a href="https://softuni.bg"/>
+  <img src="data/icons/softuni_logo.png" width="64"></a>
+
+  <h1>My SoftUni Homework</h1>
+
+  <a href="https://www.codefactor.io/repository/github/iliqiliev/softuni">
+  <img src="https://www.codefactor.io/repository/github/iliqiliev/softuni/badge" alt="CodeFactor" /></a>
+
+</div>
+<br/>
 
 I'm studying Python at SoftUni and I will put my solutions here.
