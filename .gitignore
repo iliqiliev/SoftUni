@@ -152,7 +152,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-.vscode/*
+.vscode
 # !.vscode/settings.json
 # !.vscode/tasks.json
 # !.vscode/launch.json
@@ -164,3 +164,6 @@ cython_debug/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+#JetBrains Products
+.idea
