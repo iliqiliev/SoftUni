@@ -1,7 +1,3 @@
-characters = input().split(", ")
-ascii_dict = {}
+ascii_dict = {character: ord(character) for character in input().split(", ")}
 
-for character in characters:
-    ascii_dict[character] = ord(character)
-    
 print(ascii_dict)
