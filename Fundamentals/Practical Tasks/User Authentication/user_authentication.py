@@ -2,6 +2,7 @@ import os, sys
 import getpass
 import random
 from argon2 import PasswordHasher
+import argon2.exceptions as argon2_exceptions
 from enum import Enum
 
 
@@ -40,7 +41,7 @@ def login(credentials: dict) -> str | None:
 
         return username
 
-    except:
+    except argon2_exceptions:
         print("Provided password is incorrect.")
         return
 
@@ -50,25 +51,26 @@ def user_profile(user: str, credentials: dict[str, dict[str, str]]) -> None:
 
     print(f"Hello, {user},\n")
     input("Welcome to your dashboard. Press Enter to see your details. ")
+
     for detail, content in credentials[user].items():
         # don't show the hashed password
         if detail == "hashed_password":
             continue
-        detail = detail.replace("_", " ").title()
-        print(f"{detail} - {content}")
+
+        print(f"{detail.replace('_', ' ').title()} - {content}")
 
 
 def valid_credentials(name: str, password: bytes, credentials: dict) -> str | None:
     # usernames must be at least 4 characters long and passwords - 8
     # usernames must also be unique
+    if name in credentials:
+        return f"{name} already exists."
+
     if len(name) < 4:
         return "Username must be 4 characters or longer."
 
-    elif len(password) < 8:
+    if len(password) < 8:
         return "Password must be 8 characters or longer."
-
-    elif name in credentials:
-        return f"{name} already exists."
 
 
 def register(credentials: dict) -> bool:
@@ -96,15 +98,16 @@ def main():
 
     while True:
         clear_screen()
+
         print("1. Login")
         print("2. Register")
         print("0. Exit")
 
         try:
             command = Command(int(input("Press a key to select an option [1/2/0]: ")))
-        except:
-            input("Invalid option! Press Enter to continue.")
 
+        except ValueError:
+            input("Invalid option! Press Enter to continue.")
             continue
 
         match command:
