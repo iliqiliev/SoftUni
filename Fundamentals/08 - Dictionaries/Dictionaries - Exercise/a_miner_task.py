@@ -2,6 +2,7 @@ from collections import defaultdict
 
 
 mined_resources = defaultdict(int)
+
 while True:  # can't use walrus, old python version
     resource = input()
 

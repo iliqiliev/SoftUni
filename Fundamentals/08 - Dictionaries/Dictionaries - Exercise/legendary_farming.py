@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-inventory = defaultdict(int)
+inventory = defaultdict(int, {"shards": 0, "fragments": 0, "motes": 0})
 winner_items = {
     "shards": "Shadowmourne",
     "fragments": "Valanyr",
@@ -25,8 +25,5 @@ while not winner:
             break
 
 print(f"{winner} obtained!")
-print(f"shards: {inventory.pop('shards', 0)}")
-print(f"fragments: {inventory.pop('fragments', 0)}")
-print(f"motes: {inventory.pop('motes', 0)}")
 for item, count in inventory.items():
     print(f"{item}: {count}")

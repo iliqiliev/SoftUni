@@ -9,23 +9,24 @@ while True:
         break
 
     if "|" in command:
-        side, _, user = command.partition(" | ")
+        side, user = command.split(" | ")
 
+        # if the user isn't in any of the force sides
         if not any(user in users for users in force_sides.values()):
             force_sides[side].append(user)
 
     elif "->" in command:
-        user, _, side = command.partition(" -> ")
+        user, side = command.split(" -> ")
 
-        if not any(user in users for users in force_sides.values()):
-            force_sides[side].append(user)
-
+        # change the side if the user already has side
+        for users in force_sides.values():
+            if user in users:
+                users.remove(user)
+                force_sides[side].append(user)
+                break
+        # else add it to the side
         else:
-            for old_side, users in force_sides.items():
-                if user in users:
-                    force_sides[old_side].remove(user)
-                    force_sides[side].append(user)
-                    break
+            force_sides[side].append(user)
 
         print(f"{user} joins the {side} side!")
 
