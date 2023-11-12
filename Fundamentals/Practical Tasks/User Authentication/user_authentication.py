@@ -1,9 +1,10 @@
-import os, sys
+import os
+import sys
 import getpass
 import random
-from argon2 import PasswordHasher
-import argon2.exceptions as argon2_exceptions
 from enum import Enum
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
 
 
 class Command(Enum):
@@ -27,7 +28,7 @@ def login(credentials: dict) -> str | None:
 
     if username not in credentials:
         print(f"{username} is not registered.")
-        return
+        return None
 
     try:
         PasswordHasher().verify(credentials[username]["hashed_password"], password)
@@ -41,9 +42,9 @@ def login(credentials: dict) -> str | None:
 
         return username
 
-    except argon2_exceptions:
+    except VerifyMismatchError:
         print("Provided password is incorrect.")
-        return
+        return None
 
 
 def user_profile(user: str, credentials: dict[str, dict[str, str]]) -> None:
@@ -72,6 +73,8 @@ def valid_credentials(name: str, password: bytes, credentials: dict) -> str | No
     if len(password) < 8:
         return "Password must be 8 characters or longer."
 
+    return None
+
 
 def register(credentials: dict) -> bool:
     username = input("Enter username: ").strip()
@@ -82,15 +85,14 @@ def register(credentials: dict) -> bool:
         print(error)
         return False
 
-    else:
-        credentials[username] = {
-            "hashed_password": PasswordHasher().hash(password),
-            "full_name": f"{username.capitalize()} {username.capitalize()}ev",
-            "email": f"{username}{random.randint(100, 1000)}@gmail.com",
-            "phone_number": f"08{random.randint(7,10)}{random.randint(1000000, 10000000)}",
-        }
-        print(f"Success! {username} is now registered.")
-        return True
+    credentials[username] = {
+        "hashed_password": PasswordHasher().hash(password),
+        "full_name": f"{username.capitalize()} {username.capitalize()}ev",
+        "email": f"{username}{random.randint(100, 1000)}@gmail.com",
+        "phone_number": f"08{random.randint(7,10)}{random.randint(1000000, 10000000)}",
+    }
+    print(f"Success! {username} is now registered.")
+    return True
 
 
 def main():
