@@ -38,7 +38,5 @@ print("Ranking:")
 for username, scores in sorted(submissions.items()):
     print(username)
 
-    for contest, points in sorted(
-        scores.items(), key=lambda score: score[1], reverse=True
-    ):
+    for contest, points in sorted(scores.items(), key=lambda score: -score[1]):
         print(f"#  {contest} -> {points}")

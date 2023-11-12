@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-entries = defaultdict(lambda: defaultdict(int))
+entries = defaultdict(dict)
 
 while True:
     command = input().split(" -> ")
@@ -29,7 +29,7 @@ for participants in entries.values():
         individual_standings[participant] += score
 
 print("Individual standings:")
-# The second part of the sorting key fixes the 66/100, was a pain to find because:
+# The second part of the sorting key fixes 66/100 on Judge, was a pain to find because:
 # "If all sorting criteria fail, the order should be by order of input." (: (:
 ranked = enumerate(sorted(individual_standings.items(), key=lambda x: (-x[1], x)), 1)
 for index, (participant, score) in ranked:
