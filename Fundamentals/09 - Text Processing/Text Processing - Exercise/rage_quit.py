@@ -30,23 +30,20 @@ def scream_input(command: str) -> list:
 
 def scream(instructions: list) -> str:
     gamer_scream = ""
-    unique_symbols = ""
 
     for index in range(0, len(instructions), 2):
         string = instructions[index].upper()
         repeats = instructions[index + 1]
 
-        # add the string to a set so it stores only the unique symbols
-        unique_symbols += string
         gamer_scream += string * repeats
 
-    return f"Unique symbols used: {len(set(unique_symbols))}\n{gamer_scream}"
+    return f"Unique symbols used: {len(set(gamer_scream))}\n{gamer_scream}"
 
 
 def main():
-    command = scream_input(input())
+    instructions = scream_input(input())
 
-    print(scream(command))
+    print(scream(instructions))
 
 
 if __name__ == "__main__":
