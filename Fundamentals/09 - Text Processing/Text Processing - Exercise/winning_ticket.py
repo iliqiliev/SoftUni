@@ -11,7 +11,7 @@ for ticket in tickets_to_check:
 
     for sign in winning_signs:
         repeats = 5
-        # check how much max_repeats each sign has in both halves the ticket
+        # check how many repeats each sign has in both halves of the ticket
         while all(sign * (repeats + 1) in half for half in (ticket[:10], ticket[10:])):
             repeats += 1
 
