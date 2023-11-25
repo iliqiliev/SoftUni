@@ -16,7 +16,6 @@ while True:
     if name in valid_racers:
         racers[name] += distance
 
-
 podium = tuple(
     item[0] for item in sorted(racers.items(), key=lambda distance: -distance[1])[:3]
 )

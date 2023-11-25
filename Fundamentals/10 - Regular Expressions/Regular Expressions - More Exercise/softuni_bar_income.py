@@ -1,5 +1,6 @@
 import re
 
+
 order_pattern = r"""
     %(?P<name>[A-Z][a-z]*)%.*?
     <(?P<product>\w+)>.*?
