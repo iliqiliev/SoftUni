@@ -23,6 +23,6 @@ while True:
         total_price += total_item_price
 
 print("Bought furniture:")
-if bought_furniture:
-    print("\n".join(bought_furniture))
+for name in bought_furniture:
+    print(name)
 print(f"Total money spend: {total_price:.2f}")
