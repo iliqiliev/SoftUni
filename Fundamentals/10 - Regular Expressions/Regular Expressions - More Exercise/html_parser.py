@@ -2,7 +2,7 @@ import re
 
 
 html_pattern = r"<title>(.*)</title>.*<body>(.*)</body>"
-tag_pattern = r"<(.*?)>"
+tag_pattern = r"<.*?>"
 
 html_match = re.search(html_pattern, input())
 
