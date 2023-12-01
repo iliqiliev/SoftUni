@@ -1,35 +1,21 @@
-def move(message: str, number_of_letters: int) -> str:
-    number_of_letters = int(number_of_letters)
-    return message[number_of_letters:] + message[:number_of_letters]
+message = input()
 
+operations = {
+    "Move": lambda message, number_of_letters:
+    message[number_of_letters:] + message[:number_of_letters],
 
-def insert(message: str, index: int, value: str) -> str:
-    index = int(index)
-    return message[:index] + value + message[index:]
+    "Insert": lambda message, index, value:
+    message[:index] + value + message[index:],
 
+    "ChangeAll": lambda message, substring, replacement:
+    message.replace(substring, replacement),
+}
 
-def change_all(message: str, substring: str, replacement: str) -> str:
-    return message.replace(substring, replacement)
+while True:
+    command, *arguments = input().split("|")
+    if command not in operations:
+        print(f"The decrypted message is: {message}")
+        break
 
-
-def main():
-    message = input()
-
-    # if this is obtuse imagine lambda functions inside the dictionary :D
-    operations = {
-        "Move": move,
-        "Insert": insert,
-        "ChangeAll": change_all,
-    }
-
-    while True:
-        command, *arguments = input().split("|")
-        if command not in operations:
-            print(f"The decrypted message is: {message}")
-            break
-
-        message = operations[command](message, *arguments)
-
-
-if __name__ == "__main__":
-    main()
+    arguments = [int(arg) if arg.isdigit() else arg for arg in arguments]
+    message = operations[command](message, *arguments)

@@ -1,4 +1,5 @@
 def drive(cars: dict, car: str, distance: int, fuel: int) -> dict:
+
     if cars[car]["fuel"] >= fuel:
         cars[car]["fuel"] -= fuel
         cars[car]["mileage"] += distance
@@ -18,6 +19,7 @@ def drive(cars: dict, car: str, distance: int, fuel: int) -> dict:
 
 
 def refuel(cars: dict, car: str, fuel: int) -> dict:
+
     refill = min(75 - cars[car]["fuel"], fuel)
     cars[car]["fuel"] += refill
     print(f"{car} refueled with {refill} liters")
@@ -26,6 +28,7 @@ def refuel(cars: dict, car: str, fuel: int) -> dict:
 
 
 def revert(cars: dict, car: str, kilometres: int) -> dict:
+
     cars[car]["mileage"] -= kilometres
 
     if cars[car]["mileage"] < 10000:
