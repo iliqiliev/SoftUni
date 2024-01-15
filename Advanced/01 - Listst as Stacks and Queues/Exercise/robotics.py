@@ -8,8 +8,8 @@ robots = {name: [int(process_time), 0]
 
 
 time = datetime.strptime(input(), "%H:%M:%S")
-# callable is called until it returns the sentinel  
-items_queue = deque(product for product in iter(input, "End"))
+# input is called until it returns "End"
+items_queue = deque(iter(input, "End"))
 
 while items_queue:
     time += timedelta(seconds=1)
