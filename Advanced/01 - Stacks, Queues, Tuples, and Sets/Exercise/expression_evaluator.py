@@ -2,7 +2,7 @@ import operator
 from collections import deque
 
 
-expression = [num if num in ("*", "+", "-", "/") else int(num)
+expression = [num if num in "/*-+" else int(num)
               for num in input().split()]
 
 operators = {
