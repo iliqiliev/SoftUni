@@ -19,8 +19,11 @@ EMAIL_MIN_LENGTH = 4
 
 
 def validate_email(address: tk.Entry, result: tk.Label) -> None:
+    address_string = address.get()
+    print("\nTrying to validate email address")
+
     try:
-        validate_email_syntax(address.get())
+        validate_email_syntax(address_string)
 
     except (
         AtCharCountError,
@@ -31,12 +34,15 @@ def validate_email(address: tk.Entry, result: tk.Label) -> None:
             bg="indianred1",
             text=f"Error: {error_message}"
         )
+        print(f'Email address "{address_string}" failed to validate:\n'
+              f'{error_message}')
 
     else:
         result.config(
             bg="light green",
             text="Email is valid :)"
         )
+        print(f'Email address "{address_string}" validated successfully')
 
 
 def validate_email_syntax(address: str) -> None:
@@ -70,10 +76,6 @@ def clear_entry(address: tk.Entry, result: tk.Label, default_config: dict) -> No
 
 def main():
     root = tk.Tk()
-    width = 318
-    height = 160
-    root.geometry(f"{width}x{height}")
-    root.resizable(False, False)
     root.title("Email Address Validator")
 
     tk.Label(
