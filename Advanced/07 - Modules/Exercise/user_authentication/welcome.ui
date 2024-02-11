@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="tk.Toplevel" id="home_screen" named="True">
+    <property name="cursor">arrow</property>
+    <property name="geometry">800x600</property>
+    <property name="minsize">600|300</property>
+    <property name="title" translatable="yes">User Authentication</property>
+    <child>
+      <object class="ttk.Label" id="welcome_label" named="True">
+        <property name="font">{Noto Sans} 14 {bold}</property>
+        <property name="text" translatable="yes">Welcome! Register or login if you already have an account</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="relx">0.5</property>
+          <property name="rely">0.1</property>
+          <property name="x">0</property>
+          <property name="y">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="register_button" named="True">
+        <property name="command" type="command" cbtype="simple">register</property>
+        <property name="cursor">hand2</property>
+        <property name="text" translatable="yes">Register</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">60</property>
+          <property name="relx">0.50</property>
+          <property name="rely">0.3</property>
+          <property name="width">300</property>
+          <property name="x">0</property>
+          <property name="y">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="login_button" named="True">
+        <property name="command" type="command" cbtype="simple">login</property>
+        <property name="cursor">hand2</property>
+        <property name="text" translatable="yes">Login</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">60</property>
+          <property name="relx">0.50</property>
+          <property name="rely">0.30</property>
+          <property name="width">300</property>
+          <property name="x">0</property>
+          <property name="y">90</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="welcome_button" named="True">
+        <property name="command" type="command" cbtype="simple">home</property>
+        <property name="cursor">hand2</property>
+        <property name="text" translatable="yes">Home Screen</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="relx">0.5</property>
+          <property name="rely">0.95</property>
+          <property name="x">0</property>
+          <property name="y">0</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
