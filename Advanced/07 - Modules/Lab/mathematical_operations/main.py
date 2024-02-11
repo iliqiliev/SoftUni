@@ -11,8 +11,8 @@ while len(command := input("Enter command: ").split()) > 1:
         print(*sequence)
 
     elif operation == "Locate":
-        if index := fibonacci_index(number, sequence):
-            print(f"The number - {number} is at index {index}")
+        if (index := fibonacci_index(number, sequence)) >= 0:
+            print(f"The number {number} is at index {index}")
 
         else:
             print(f"The number {number} is not in the sequence.")

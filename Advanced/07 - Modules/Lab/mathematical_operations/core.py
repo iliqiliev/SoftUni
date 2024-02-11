@@ -9,13 +9,13 @@ def perfect_square(x: int) -> bool:
 def fibonacci_index(number: int, sequence: list[int]) -> int:
     base = 5 * number ** 2  # 🤓
     if not (perfect_square(base + 4) or perfect_square(base - 4)):
-        return 0
+        return -1
 
     try:
         return sequence.index(number)
 
     except ValueError:
-        return 0
+        return -1
 
 
 def generate_fibonacci(length: int) -> list[int]:
