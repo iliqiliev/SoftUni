@@ -7,7 +7,6 @@ DIRECTIONS = {
 
 
 matrix_size = int(input())
-matrix_range = range(matrix_size)
 
 fish_caught = 0
 fish_quota = 20
@@ -15,7 +14,7 @@ fish_quota = 20
 fisher = (0, 0)
 matrix = []
 
-for row_index in matrix_range:
+for row_index in range(matrix_size):
     row_data = list(input())
 
     if "S" in row_data:

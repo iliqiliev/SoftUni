@@ -3,7 +3,7 @@ from typing import Tuple
 
 def gather_credits(credit_needed: int, *courses: Tuple[str, int]) -> str:
     credit_gathered = 0
-    courses_enrolled = []
+    courses_enrolled = set()
 
     for name, credit_given in courses:
         if name in courses_enrolled:
@@ -13,7 +13,7 @@ def gather_credits(credit_needed: int, *courses: Tuple[str, int]) -> str:
             break
 
         credit_gathered += credit_given
-        courses_enrolled.append(name)
+        courses_enrolled.add(name)
 
     if credit_gathered >= credit_needed:
         return (
