@@ -62,7 +62,7 @@ def main():
         elif position_data == "P":
             money -= 200
 
-            if money < 1:
+            if money <= 0:
                 break
 
         elif position_data == "J":
