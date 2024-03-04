@@ -1,5 +1,5 @@
 from typing import List
-from project import Player, NO_GUILD
+from project import Player
 
 
 class Guild:
@@ -11,7 +11,7 @@ class Guild:
         if player.guild == self.name:
             return f"Player {player.name} is already in the guild."
 
-        if player.guild != NO_GUILD:
+        if player.guild != Player.NO_GUILD:
             return f"Player {player.name} is in another guild."
 
         player.guild = self.name
@@ -27,7 +27,7 @@ class Guild:
         else:
             return f"Player {player_name} is not in the guild."
 
-        player.guild = NO_GUILD
+        player.guild = Player.NO_GUILD
         self.players.pop(index)
 
         return f"Player {player_name} has been removed from the guild."
