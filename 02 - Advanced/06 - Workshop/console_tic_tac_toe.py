@@ -6,7 +6,8 @@ TOTAL_CELLS = SIZE ** 2
 
 
 def clear_screen() -> None:
-    os.system("clear" if os.name == "posix" else "cls")
+    terminal_lines = os.get_terminal_size()[1]
+    print("\n" * (terminal_lines))
 
 
 def print_board(board=None) -> None:

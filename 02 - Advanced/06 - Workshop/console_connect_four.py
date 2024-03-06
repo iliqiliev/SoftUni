@@ -18,7 +18,8 @@ DIRECTIONS = (
 
 
 def clear_screen() -> None:
-    os.system("clear" if os.name == "posix" else "cls")
+    terminal_lines = os.get_terminal_size()[1]
+    print("\n" * (terminal_lines - ROWS - 1))
 
 
 def create_board(rows: int, cols: int) -> list[list[int]]:
