@@ -1,7 +1,7 @@
 from pyfiglet import figlet_format
 from termcolor import colored, COLORS
 
-from python_fetch.core import generate_system_info
+from python_fetch import generate_system_info
 
 
 colours = tuple(colour for colour in COLORS if "_" not in colour)

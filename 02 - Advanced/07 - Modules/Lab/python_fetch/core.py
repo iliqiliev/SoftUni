@@ -1,16 +1,15 @@
+import getpass
+import multiprocessing
 import os
+import platform
 
-
-# TODO: finish
 
 def generate_system_info() -> dict[str, str]:
-    if os.name == "posix":
-        return generate_linux_info()
-
-    return {}
-
-
-def generate_linux_info() -> dict[str, str]:
     return {
-        "System": "Arch"
+        "System": platform.system(),
+        "Machine Type": platform.machine(),
+        "Number of CPU threads": str(multiprocessing.cpu_count()),
+        "Python Version": platform.python_version(),
+        "User Name": getpass.getuser(),
+        "Current Working Directory": os.getcwd(),
     }
