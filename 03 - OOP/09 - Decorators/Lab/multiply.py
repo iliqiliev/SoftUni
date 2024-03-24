@@ -1,3 +1,4 @@
+from functools import wraps
 from typing import Callable, TypeVar
 
 
@@ -12,6 +13,7 @@ def multiply(
         func: Callable[..., RepeatableType]
     ) -> Callable[..., RepeatableType]:
 
+        @wraps(func)
         def wrapper(*args, **kwargs) -> RepeatableType:
             return func(*args, **kwargs) * multiplier
 
